@@ -5,6 +5,7 @@ box::use(
   app/logic/const,
   app/view/favorites,
   app/view/hello,
+  app/view/reverse,
 )
 
 #' @export
@@ -13,7 +14,8 @@ ui <- function(id) {
   bootstrapPage(
     hello$ui(ns("hello")),
     favorites$ui(ns("fruits"), category = "fruits", choices = const$fruits),
-    favorites$ui(ns("vegetables"), category = "vegetables", choices = const$vegetables)
+    favorites$ui(ns("vegetables"), category = "vegetables", choices = const$vegetables),
+    reverse$ui(ns("reverse"))
   )
 }
 
@@ -23,5 +25,6 @@ server <- function(id) {
     hello$server("hello")
     favorites$server("fruits", choices = const$fruits)
     favorites$server("vegetables", choices = const$vegetables)
+    reverse$server("reverse")
   })
 }
