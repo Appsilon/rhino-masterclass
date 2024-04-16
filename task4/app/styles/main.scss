@@ -1,10 +1,16 @@
 @use 'base';
 
+@mixin gradient($theme: DarkGray) {
+  background: radial-gradient(circle, $theme 30%, Black 100%);
+}
+
 .center {
   display: flex; justify-content: center; align-items: center; height: 100vh;
 }
 
 body {
-  font: 200% base.$font-stack;
+  @include gradient($theme: DarkBlue);
+
+  font: 100% base.$font-stack;
   color: base.$primary-color;
 }
