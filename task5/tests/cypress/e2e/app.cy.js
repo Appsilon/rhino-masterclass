@@ -3,5 +3,7 @@ describe('app', () => {
     cy.visit('/')
   })
 
-  it('starts', () => {})
+  it('displays a title', () => {
+    cy.contains("Rhino App")
+  })
 })
