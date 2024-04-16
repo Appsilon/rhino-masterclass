@@ -24,6 +24,7 @@ close_pool <- function(pool) {
   }
 }
 
+#' @export
 db_pool <- create_pool()
 reg.finalizer(db_pool, close_pool, onexit = TRUE)
 .on_unload <- function(ns) {
@@ -31,8 +32,17 @@ reg.finalizer(db_pool, close_pool, onexit = TRUE)
 }
 
 #' @export
-fetch_favorites <- function() {
-  dbReadTable(db_pool, "favorites")
+fetch_groups <- function() {
+  dplyr$tbl(db_pool, "favorites") |>
+    dplyr$distinct(group) |>
+    dplyr$pull(group)
+}
+
+#' @export
+fetch_favorites <- function(group) {
+  dplyr$tbl(db_pool, "favorites") |>
+    dplyr$filter(.data$group == .env$group) |>
+    dplyr$collect()
 }
 
 #' @export
