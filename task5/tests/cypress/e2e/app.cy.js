@@ -10,7 +10,14 @@ describe('app', () => {
   it('greets user with their name', () => {
     cy.get('#app-name')
       .type('Rhino');
-    cy.get('#app-text')
+    cy.get('#app-greeting')
       .contains('Hello Rhino!');
+  });
+
+  it('congratulates for checking all', () => {
+    cy.get('#app-choices input')
+      .check();
+    cy.get('#app-done')
+      .contains('Well done!');
   });
 });
