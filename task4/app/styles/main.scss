@@ -1,3 +1,10 @@
+@use 'base';
+
 .center {
   display: flex; justify-content: center; align-items: center; height: 100vh;
+}
+
+body {
+  font: 200% base.$font-stack;
+  color: base.$primary-color;
 }
