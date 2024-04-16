@@ -1,8 +1,9 @@
 box::use(
   config,
+  dplyr,
   pool[dbPool, poolClose],
   rhino[log],
-  RSQLite[SQLite],
+  RSQLite[dbReadTable, SQLite],
 )
 
 create_pool <- function() {
@@ -23,10 +24,19 @@ close_pool <- function(pool) {
   }
 }
 
-#' @export
 db_pool <- create_pool()
-
 reg.finalizer(db_pool, close_pool, onexit = TRUE)
 .on_unload <- function(ns) {
   close_pool(db_pool)
+}
+
+#' @export
+fetch_favorites <- function() {
+  dbReadTable(db_pool, "favorites")
+}
+
+#' @export
+filter_favorites <- function(favorites, min_age) {
+  favorites |>
+    dplyr$filter(age >= min_age)
 }
