@@ -11,11 +11,11 @@ to create a new Rhino app in `task1` directory.
 [`shiny::devmode()`](https://shiny.posit.co/r/reference/shiny/latest/devmode.html).
 * Run the app with
 [`shiny::runApp()`](https://shiny.posit.co/r/reference/shiny/latest/runapp).
-* Edit the displayed message and see how the app automatically reloads.
+* Edit the displayed message in `app/main.R` and see how the app automatically reloads.
 
 ### Step 3
 
-Copy over the following code to `app/main.R`:
+Copy over the following code to `main.R`:
 ```r
 box::use(
   shiny,
