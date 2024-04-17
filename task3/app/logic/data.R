@@ -2,7 +2,7 @@ box::use(
   dplyr,
 )
 box::use(
-  app/logic/db[pool],
+  app/logic/db,
 )
 
 #' @export
@@ -15,7 +15,7 @@ fetch_groups <- function() {
 #' @export
 fetch_favorites <- function(group) {
   # Step 7:
-  dplyr$tbl(pool, "favorites") |>
+  dplyr$tbl(db$pool, "favorites") |>
     dplyr$filter(.data$group == .env$group) |>
     dplyr$collect()
 }
