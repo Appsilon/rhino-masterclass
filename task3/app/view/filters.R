@@ -17,9 +17,6 @@ ui <- function(id) {
 server <- function(id) {
   shiny$moduleServer(id, function(input, output, session) {
     # Step 8:
-    favorites <- data$fetch_favorites(group = 1)
-    shiny$reactive({
-      data$filter_favorites(favorites, min_age = input$min_age)
-    })
+    # ?
   })
 }
