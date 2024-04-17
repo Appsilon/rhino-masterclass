@@ -3,7 +3,6 @@ default:
   rhino_log_file: !expr Sys.getenv("RHINO_LOG_FILE", NA)
 
 dev:
-  db:
-    driver: sqlite
-    args:
-      dbname: dev.sqlite3
+  db_driver: sqlite
+  db_args:
+    dbname: dev.sqlite3
