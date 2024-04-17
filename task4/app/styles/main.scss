@@ -1,16 +1,16 @@
+// Step 3:
 @use 'base';
 
-@mixin gradient($theme: DarkGray) {
-  background: radial-gradient(circle, $theme 30%, Black 100%);
-}
-
 .center {
+  // Step 1:
   display: flex; justify-content: center; align-items: center; height: 100vh;
 }
 
 body {
-  @include gradient($theme: DarkBlue);
+  // Step 4:
+  @include base.gradient($theme: DarkBlue);
 
+  // Step 3:
   font: 100% base.$font-stack;
   color: base.$primary-color;
 }

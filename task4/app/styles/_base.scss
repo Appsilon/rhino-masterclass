@@ -1,2 +1,6 @@
 $font-stack: Courier, monospace;
 $primary-color: #9d0000;
+
+@mixin gradient($theme: DarkGray) {
+  background: radial-gradient(circle, $theme 30%, Black 100%);
+}
