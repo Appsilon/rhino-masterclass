@@ -2,6 +2,7 @@ default:
   rhino_log_level: !expr Sys.getenv("RHINO_LOG_LEVEL", "INFO")
   rhino_log_file: !expr Sys.getenv("RHINO_LOG_FILE", NA)
 
+# Step 2:
 dev:
   db_driver: sqlite
   db_args:
