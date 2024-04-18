@@ -2,7 +2,7 @@
 
 ### Step 1
 
-Run `renv::restore()` and `shiny:runApp()`.
+Run `renv::restore()` and `shiny::runApp()`.
 
 ### Step 2
 
